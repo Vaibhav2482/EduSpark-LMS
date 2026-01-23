@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
-import logo from "../../assets/logo.svg";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const location = useLocation()
@@ -12,25 +13,32 @@ const Navbar = () => {
       border-b border-gray-500 py-4 
       ${isCourseListPage ? 'bg-white' : 'bg-cyan-100/70'}`}
     >
-      <img
-        src={logo}
-        alt="EduSpark Logo"
-        className="w-28 lg:w-32 cursor-pointer "
-      />
+      {/* Logo */}
+      <h1 className="text-2xl font-bold">
+        <span className="text-blue-600">Edu</span>
+        <span className="text-orange-500">Spark</span>
+      </h1>
 
+      {/* Desktop Menu */}
       <div className="hidden md:flex items-center gap-5 text-gray-500">
-        <div className="flex items-center gap-4">
-          <button>Become Educator</button>
-          <Link to="/my-enrollments">My Enrollments</Link>
-        </div>
+        <button>Become Educator</button>
+        <Link to="/my-enrollments"> My Enrollments</Link>
 
-        <button className="bg-blue-600 text-white px-5 py-2 rounded-full cursor-pointer">
+        <button className="bg-blue-600 text-white px-5 py-2 rounded-full">
           Create Account
         </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className="md:hidden flex items-center gap-4 text-gray-500">
+        <div><button>Become Educator |</button>
+
+          <Link to="/my-enrollments">My Enrollments</Link>
+        </div>
+        <button> <FontAwesomeIcon icon={faAddressCard} size="lg" /> </button>
       </div>
     </div>
   )
 }
 
 export default Navbar
-
