@@ -90,7 +90,7 @@ function Login() {
 
 const styles = {
   page: {
-    minHeight: "100vh",
+    minHeight: "88vh",
     background: "linear-gradient(135deg, #eef2f7, #dce3ea)",
     display: "flex",
     justifyContent: "center",
